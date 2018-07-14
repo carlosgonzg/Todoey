@@ -14,7 +14,9 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        itemArray = defaults.value(forKey: "ToDoListArray") as? [String] ?? ["Kill", "Myself", "Lol...?"]
+        if let item = defaults.value(forKey: "ToDoListArray") as? [String] {
+            itemArray = item
+        }
     }
     //MARK - Tableview Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
